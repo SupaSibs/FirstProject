@@ -3,13 +3,9 @@ res.render('index', { title: 'My First Backend App' } ) }
 
 exports.submit_lead = (req, res, next) => {
 let email = req.body.lead_email;
-console.log("lead email:", email)
-res.redirect('/')
+console.log("lead email:", email);
+return email;
 }
 
-exports.get_lead = (req, res, next) => {
-let email = req.body.lead_email;
-module.exports = email;
-}
 
 

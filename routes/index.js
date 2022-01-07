@@ -6,6 +6,4 @@ dbhandler = require("../routes/database.js")
 router.get('/', landing.get_landing);
 //Posts the submit_lead and get_lead.
 router.post('/', landing.submit_lead);
-router.post('/', landing.get_lead);
-router.post('../routes/database.js', dbhandler.saveToDb.bind(globalThis, lead_email))
 module.exports = router;
