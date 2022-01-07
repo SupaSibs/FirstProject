@@ -7,12 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-	extended: true
-})); 
+var app = express(); 
 app.post('/', (req, res) => { res.json(req.body) })
 
 // view engine setup
@@ -24,13 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(body-parser())
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use((req, res, next) => {
-res.setHeader("Content-Type", "application/json");
-next();
-});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
