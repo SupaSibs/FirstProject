@@ -1,4 +1,11 @@
 @use "sass:math";
-@function pxToEm($px) {
-@return math.multiply($px, 16)
+@use "modules/mixins";
+
+@function pxToRem($px) {
+@return math.multiply($px, 16);
+}
+body, main {
+height: 100vh;
+@include bg();
+@include flex();
 }

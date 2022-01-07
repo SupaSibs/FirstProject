@@ -1,0 +1,17 @@
+//Mixins
+@mixin bg($color:default, $bg:default, $bgsize:default, $bgpos:default) {
+background: $color $bg $bgsize $bgpos;
+}
+@mixin flex($justify: center, $align: center, $direction: row) {
+display: flex;
+justify-content: $justify;
+align-items: $align;
+flex-direction: $direction;
+}
+@mixin grid($justify: center, $align: center, $columns:default, $rows:default) {
+display: grid;
+display: -ms-grid;
+justify-content: $justify;
+align-items: $align;
+grid-template: $rows / $columns;
+}
