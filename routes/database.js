@@ -9,6 +9,15 @@ router.get("/", landing.get_lead);
 mongoose.connect("mongodb://localhost:27017/Learning-Node")
 .catch(() => alert("Connection to Database failed. Please try again later."));
 let db = mongoose.connection;
+//schema
+let emailSchema =  new mongoose.Schema({
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    }
+    })
+landing.email = mongoose.Model("Emails_Collection", emailSchema)
 //checks if db exists, if it does it adds the email to the db
 if (db) {
 landing.email.save();
