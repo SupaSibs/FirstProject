@@ -4,8 +4,14 @@ let express = require("express"),
   mongoose = require("mongoose"),
    landing = require("../controllers/landing");
 //gets lead email to add to the database
-let email = landing.submit_email
 //connects to mongoose and uses promises
-let db = mongoose.connect("mongodb://localhost:27017/Learning-Node").connect
-
-landing.email.save(() => {});
+let db = mongoose.connect("mongodb://localhost:27017/Learning-Node").connection
+//schema
+let schema = new mongoose.Schema({
+email: {
+	required:true,
+	type:String
+}})
+let mailModel = mongoose.model("Emails_Collection", schema)
+let mailSend = new mailModel(landing.submit_lead())
+email.save(function(){});
