@@ -1,24 +1,24 @@
 //mongoose db, express.js, landing and router settings
-let express = require("express")
-let router = express.Router();
-let mongoose = require("mongoose");
-let landing = require("../controllers/landing")
+let express = require("express"),
+ router = express.Router(),
+  mongoose = require("mongoose"),
+   landing = require("../controllers/landing");
 //gets lead email to add to the database
 router.get("/", landing.get_lead);
 //connects to mongoose and uses promises
 mongoose.connect("mongodb://localhost:27017/Learning-Node")
-.catch(() => alert("Connection to Database failed. Please try again later."));
+.catch(() => console.log("Connection to Database failed. Please try again later."));
 let db = mongoose.connection;
 //schema
+exports.saveToDb = (email) => {
 let emailSchema =  new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        collection: "Emails_Collection"
     }
     })
-landing.email = mongoose.Model("Emails_Collection", emailSchema)
-//checks if db exists, if it does it adds the email to the db
-if (db) {
-landing.email.save();
+    landing.email = mongoose.Schema("Email_Collection", emailSchema)
+landing.email.save(() => {});
 }
