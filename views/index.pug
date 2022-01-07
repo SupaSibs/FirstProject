@@ -1,10 +1,10 @@
 extends layout
 
 block content
-main
-  h1= title
-  p Welcome to #{title}
-  form(action="/", method="POST")
-    input(name="lead_email" type="email" placeholder="Type in your Email Adress.")
-    button(type="submit") Submit
+  main
+    h1= title
+    p Welcome to #{title}
+    form(action="/", method="POST")
+      input(name="lead_email" type="email" placeholder="Type in your Email Adress.")
+      button(type="submit") Submit
     
