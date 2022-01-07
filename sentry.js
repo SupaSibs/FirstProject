@@ -14,7 +14,9 @@ Sentry.init({
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
 });
-
+function foo() {
+    return "nothing"
+    }
 const transaction = Sentry.startTransaction({
   op: "test",
   name: "My First Test Transaction",
