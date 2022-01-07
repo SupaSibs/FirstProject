@@ -8,7 +8,7 @@ res.redirect('/')
 }
 
 exports.get_lead = (req, res, next) => {
-email = req.body.lead_email;
+let email = req.body.lead_email;
 module.exports = email;
 }
 
