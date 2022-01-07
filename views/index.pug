@@ -3,4 +3,6 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  p In this page, I will code a simple web app using Node and Express.
+  form(action="/", method="POST")
+    input(type="email" placeholder="Type in your Email Adress.")
+    button(type="submit") Submit
