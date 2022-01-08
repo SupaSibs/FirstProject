@@ -5,5 +5,5 @@ dbhandler = require("../routes/database.js")
 // GET home page
 router.get('/', landing.get_landing);
 //Posts the send lead
-router.post('/', landing.email_lead);
+router.post('/', landing.submit_lead);
 module.exports = router;
