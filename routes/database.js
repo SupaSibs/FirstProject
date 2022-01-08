@@ -4,7 +4,7 @@ let express = require("express"),
   mongoose = require("mongoose"),
    landing = require("../controllers/landing");
 //connects to mongoose
-let db = mongoose.connect("mongodb+srv://SupaSibs:rami.com@learning-node.xhgyd.mongodb.net/Learning-Node?retryWrites=true&w=majority").connection
+let db = mongoose.connect("mongodb+srv://SupaSibs:<REDACTED>@learning-node.xhgyd.mongodb.net/Learning-Node?retryWrites=true&w=majority").connection
 //schema for email, password, and username.
 router.post('/', sendData);
 function sendData(username, email, password) {
