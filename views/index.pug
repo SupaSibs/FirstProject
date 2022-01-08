@@ -5,6 +5,8 @@ block content
     h1= title
     p Welcome to #{title}
     form(action="/", method="POST")
-      input(name="lead_email" type="email" placeholder="Type in your Email Adress.")
+      input(name="username" type="text" placeholder="Type in your Username.)
+      input(name="password" type="password" placeholder="Type in your Password.")
+      input(name="email" type="email" placeholder="Type in your Email Adress.")
       button(type="submit") Submit
     
