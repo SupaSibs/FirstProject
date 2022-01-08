@@ -17,6 +17,7 @@ app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(express.bodyParser())
 app.use((req, res, next) => {
 cookieParser();
 next();
