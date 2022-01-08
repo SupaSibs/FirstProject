@@ -27,9 +27,8 @@ Password: {
 let detailsModel = mongoose.model("Details", schema);
 
 let detailsSent = new Promise((success, fail) => {
-globalThis.details = detailsModel(username, email, password);
+globalThis.details = detailsModel({username, email, password});
 })	
-detailsSent.then(console.log("Success"))
 detailsSent.catch(console.error("Failed"));
 
 details.save(function(){})
