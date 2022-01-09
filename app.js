@@ -1,14 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-let connect = require("connect")
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-let bodyParser = require("body-parser");
-var cors=require('cors')
-var app = express();
+let createError = require('http-errors'),
+ express = require('express'),
+ path = require('path'),
+ cookieParser = require('cookie-parser'),
+ logger = require('morgan'),
+ connect = require("connect"),
+ indexRouter = require('./routes/index'),
+ usersRouter = require('./routes/users'),
+ bodyParser = require("body-parser"),
+ cors=require('cors')
+ app = express(),
+ login = require("routes/login"),
+ router = express.Router();
 //bodyparse
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -25,11 +27,12 @@ next();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// catch 404 and forward to error handler
+// catch12 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
+router.post("/login", resParser)
+//activate cookie parser
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -40,5 +43,13 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+//make res accessible for cookie management
+resParser = (req, res, next) => {
+globalThis.req = req;
+globalThis.res = res;
+}
+//manage cookies for logging in
+exports.loginCookie = (token, account) => {
+res.cookie("Client Login:" + account, token)
+}
 module.exports = app;

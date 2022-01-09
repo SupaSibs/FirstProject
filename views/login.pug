@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  main
+    p Insert your details here.
+    form(action="/login.html")
+      input(name="name" type="text" placeholder="Username or Email")
+      input(name="pass" type="password" placeholder="Password")
+      button(type="submit") Submit
+      

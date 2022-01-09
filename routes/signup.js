@@ -1,10 +1,11 @@
 //mongoose db, express.js, landing and router settings
+require("dotenv").config()
 let express = require("express"),
  router = express.Router(),
   mongoose = require("mongoose"),
    landing = require("../controllers/landing");
-//connects to mongoose
-let db = mongoose.connect("mongodb+srv://SupaSibs:abc@learning-node.xhgyd.mongodb.net/Learning-Node?retryWrites=true&w=majority")
+//connects to mongo
+mongoose.connect(process.env.MONGO_URI)
 //schema for email, password, and username.
 exports.sendData = (user, email, pass) => {
 let schema = new mongoose.Schema({
