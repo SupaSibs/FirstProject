@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 let bodyParser = require("body-parser");
 var cors=require('cors')
 var app = express();
+//bodyparse
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // view engine setup
