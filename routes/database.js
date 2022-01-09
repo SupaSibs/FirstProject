@@ -4,10 +4,9 @@ let express = require("express"),
   mongoose = require("mongoose"),
    landing = require("../controllers/landing");
 //connects to mongoose
-let db = mongoose.connect("mongodb+srv://SupaSibs:<REDACTED>@learning-node.xhgyd.mongodb.net/Learning-Node?retryWrites=true&w=majority").connection
+let db = mongoose.connect("mongodb+srv://SupaSibs:abc@learning-node.xhgyd.mongodb.net/Learning-Node?retryWrites=true&w=majority")
 //schema for email, password, and username.
-router.post('/', sendData);
-function sendData(username, email, password) {
+exports.sendData = (user, email, pass) => {
 let schema = new mongoose.Schema({
 Username: {
 	required:true,
@@ -25,11 +24,7 @@ Password: {
 	unique: false
 }})
 let detailsModel = mongoose.model("Details", schema);
-
-let detailsSent = new Promise((success, fail) => {
-globalThis.details = detailsModel({username, email, password});
-})	
-detailsSent.catch(console.error("Failed"));
-
-details.save(function(){})
+let details = detailsModel({Username:user, Email:email, Password:pass});
+details.save()
+details = undefined;
 }

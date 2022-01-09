@@ -1,6 +1,6 @@
 const dbHandler = require("../routes/database");
 const express = require("express")
-let router = express.Router;
+let router = express.Router();
 exports.get_landing = (req, res, next) => {
 res.render('index', { title: 'My First Backend App' } ) }
 
@@ -13,7 +13,6 @@ console.log("lead email:", email);
 console.log("lead name:", username);
 console.log("lead pass:", pass);
 dbHandler.sendData(username, email, pass);
-router.redirect("/")
 }
 
 
